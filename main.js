@@ -1,4 +1,3 @@
-Access-Control-Allow-Origin *
 window.onload = function() {
   
   // create and initialize a 3D renderer
