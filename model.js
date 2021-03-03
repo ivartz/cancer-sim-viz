@@ -7,7 +7,7 @@ window.onload = function() {
   // create a new X.mesh
   var skull = new X.mesh();
   // .. and associate the .vtk file to it
-  skull.file = 'models/bunny.vtk';
+  skull.file = '../models/bunny.vtk';
   //skull.file = 'sim.vtk';
 
   // .. make it transparent
