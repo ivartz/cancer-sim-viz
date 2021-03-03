@@ -49,3 +49,8 @@ header img {
   height: auto;
   margin: 5px 15px 0 0;
 }
+
+.xtk-progress-bar {
+  padding: 2px !important;
+  border-radius: 10px;
+}
