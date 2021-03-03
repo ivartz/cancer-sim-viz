@@ -9,12 +9,15 @@ body {
 }
 
 header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
   height: 100px;
-  max-width: 100%;
   background: rgba(255, 255, 255, 0.08);
   color: #434343;
 }
