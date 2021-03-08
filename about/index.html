@@ -5,7 +5,7 @@
     <!-- <script type="text/javascript" src="https://get.goXTK.com/xtk_edge.js"></script> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../style.css?v=0.6">
+    <link rel="stylesheet" type="text/css" href="../style.css?v=0.7">
     <link rel="shortcut icon" href="../favicon.ico">
   </head>
   <body>
@@ -47,7 +47,9 @@
           <figcaption><strong>Figure 1:</strong> Particles</figcaption>
         </figure>
 
-        <p>Pathlines: Displacement of tissue over multiple MRI examinations using a time-varying vector field</p>
+        <ul>
+          <li>Pathlines: Displacement of tissue over multiple MRI examinations using a time-varying vector field</li>
+        </ul>
 
         <p>
           Fibers show positions of displaced tissue for each time interval between examinations as disease progresses. The below figure illustrates the pathline of a particle along with streamlines and another closely related concept, the streakline of the particle. The figure is modified and originates from the Wikipedia page on streamlines: <a href="https://en.wikipedia.org/wiki/Streamlines%2C_streaklines%2C_and_pathlines" target="_blank">Streamlines, streaklines, and pathlines</a></a>
@@ -86,7 +88,7 @@
         </p>
 
         <p>
-          The core idea of the deformation model is illustrated in the axial brain slice figure below for expanding deformation. Based on the bounding box dimensions of the lesion mask, we compute an outward vector field from a 3D gaussian intensity function. We then extrapolate this vector field by interpolating the field components in the <insert small ||| and --- pattern for gravering of the small triangle here> region to cover the entire <insert small ||| pattern for gravering of the large triangle here> region. The amount of extrapolation is determined by “Penetration”. The field is then scaled to have the specified “Maximum displacement”. Then we add some Perlin noise to mimic the growth irregularity.
+          The core idea of the deformation model is illustrated in the axial brain slice figure below for expanding deformation. Based on the bounding box dimensions of the lesion mask, we compute an outward vector field from a 3D gaussian intensity function. We then extrapolate this vector field by interpolating the field components in the double dashed region region to cover the entire single dashed region. The amount of extrapolation is determined by “Penetration”. The field is then scaled to have the specified “Maximum displacement”. We then add some Perlin noise to mimic the growth irregularity.
         </p>
 
         <figure class="svg-wrap">

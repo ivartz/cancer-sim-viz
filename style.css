@@ -87,7 +87,7 @@ header img {
 .container {
   display: flex;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1300px;
   padding: 0 25px 50px;
   margin: 0px auto;
 }
@@ -111,7 +111,7 @@ header img {
 
 .wrap h2 {
   margin-top: 42px;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 .wrap ul,
@@ -123,7 +123,7 @@ header img {
 .wrap p,
 .wrap ul li,
 .wrap ol li {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 30px;
   color: #fff;
   word-wrap: break-word;
@@ -136,7 +136,7 @@ header img {
 }
 
 .wrap img.lines {
-  max-width: 50%;
+  max-width: 420px;
   height: auto;
 }
 
