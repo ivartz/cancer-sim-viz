@@ -59,6 +59,13 @@ header img {
   border-radius: 10px;
 }
 
+.intro-line {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  color: #434343;
+}
+
 .about {
   position: absolute;
   right: 40px;
@@ -95,29 +102,15 @@ header img {
   overflow-x: hidden;
 }
 
-.wrap h1,
-.wrap h2,
-.wrap h3 {
+.wrap h2 {
   color: #434343;
   text-transform: lowercase;
   border-left: solid 2px;
   padding-left: 15px;
 }
 
-.wrap h2,
-.wrap h3 {
-  margin-top: 55px;
-}
-
-.wrap h1 {
-  font-size: 60px;
-}
-
 .wrap h2 {
-  font-size: 30px;
-}
-
-.wrap h3 {
+  margin-top: 42px;
   font-size: 24px;
 }
 
@@ -130,7 +123,7 @@ header img {
 .wrap p,
 .wrap ul li,
 .wrap ol li {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 30px;
   color: #fff;
   word-wrap: break-word;
@@ -167,6 +160,7 @@ figure {
 figcaption {
   color: #fff;
   font-weight: 300;
+  font-size: 14px;
 }
 
 figure.lines-wrap {
@@ -176,6 +170,14 @@ figure.lines-wrap {
 
 figure.lines-wrap img {
   margin: 0 40px 0 0;
+}
+
+figure.svg-wrap {
+  text-align: center;
+}
+
+figure.svg-wrap img {
+  width: 100%;
 }
 
 @media only screen and (max-width: 700px) {

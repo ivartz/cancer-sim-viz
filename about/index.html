@@ -5,7 +5,7 @@
     <!-- <script type="text/javascript" src="https://get.goXTK.com/xtk_edge.js"></script> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../style.css?v=0.5">
+    <link rel="stylesheet" type="text/css" href="../style.css?v=0.6">
     <link rel="shortcut icon" href="../favicon.ico">
   </head>
   <body>
@@ -15,7 +15,7 @@
 
     <div class="container">
       <div class="wrap">
-        <h1>About</h1>
+        <h2>About</h2>
         <p>
           Coarse-grained approximation of real physical displacements of tissue using displacement fields as a result of cancer progression.
         </p>
@@ -42,7 +42,7 @@
         </p>
 
         <figure>
-          <img src="../img/particles.gif" alt="Particles">
+          <img src="../img/particles.gif" alt="Particles" loading="lazy">
 
           <figcaption><strong>Figure 1:</strong> Particles</figcaption>
         </figure>
@@ -54,13 +54,13 @@
         </p>
 
         <figure class="lines-wrap">
-          <img class="lines" src="../img/lines.gif" alt="Lines">
+          <img class="lines" src="../img/lines.gif" alt="Lines" loading="lazy">
 
           <figcaption><strong>Figure 2:</strong> Steamlines and pathlines</figcaption>
         </figure>
 
         <figure>
-          <img src="../img/campfire.jpg" alt="Pathlines">
+          <img src="../img/campfire.jpg" alt="Pathlines" loading="lazy">
           <figcaption><strong>Figure 3:</strong> Pathlines</figcaption>
         </figure>
         <h2>Non-rigid registration</h2>
@@ -89,17 +89,17 @@
           The core idea of the deformation model is illustrated in the axial brain slice figure below for expanding deformation. Based on the bounding box dimensions of the lesion mask, we compute an outward vector field from a 3D gaussian intensity function. We then extrapolate this vector field by interpolating the field components in the <insert small ||| and --- pattern for gravering of the small triangle here> region to cover the entire <insert small ||| pattern for gravering of the large triangle here> region. The amount of extrapolation is determined by “Penetration”. The field is then scaled to have the specified “Maximum displacement”. Then we add some Perlin noise to mimic the growth irregularity.
         </p>
 
-        <figure>
-          <img src="../img/model.svg" alt="Model">
+        <figure class="svg-wrap">
+          <img src="../img/model.svg" alt="Model" loading="lazy">
 
           <figcaption><strong>Figure 4:</strong> Model</figcaption>
         </figure>
 
-        <h3>Reference</h3>
+        <h2>Reference</h2>
         
         <p>insert displacement manuscript published DOI here</p>
 
-        <h3>Contact</h3>
+        <h2>Contact</h2>
 
         <p>Ivar Thokle Hovden<br>
           PhD Student<br>
@@ -118,7 +118,7 @@
         </p>
 
 
-        <h3>Webdesign</h3>
+        <h2>Webdesign</h2>
         <p>Mattis Hovden Aas, <a href="https://dovremedia.no" target="_blank">Dovre Media</a></p>
         
       </div>
