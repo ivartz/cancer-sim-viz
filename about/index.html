@@ -38,13 +38,13 @@
         </ul>
 
         <p>
-          Fibers show tangential directions of displacement of tissue using a vector field to describe the deformation of the first MRI examination into the second examination. The below figure illustrates the simplest radial shrinking deformation field together with its streamlines and two interpretations of individual particle path simulations. We suggest interpreting the vector field as a velocity field. The particles show displacement behavior in the vector field when interpreted as a velocity and force field, respectively. Graphic rendered from falstad.com.
+          Fibers show tangential directions of displacement of tissue using a vector field to describe the deformation of the first MRI examination into the second examination. The below figure illustrates the simplest radial shrinking deformation field together with its streamlines and two interpretations of an individual particle path. We suggest interpreting the vector field as a velocity field. The particles show displacement behavior in the vector field when interpreted as a velocity and force field, respectively.
         </p>
 
         <figure>
           <img src="../img/particles.gif" alt="Particles" loading="lazy">
 
-          <figcaption><strong>Figure 1:</strong> Particles</figcaption>
+          <figcaption><strong>Figure 1:</strong> Illustration of radial shrinking deformation using a vector field and streamlines. When interpreted as a velocity field, a massless particle will act on the field as time progresses by moving along streamlines that are tangential to the arrows, and with velocities proportional to the length of the arrows (color coded, white with higest velocity). The streamlines are analog to fibers in diffusion tensoor imaging (DTI). The equivalent force field exerts different behavor on a particle.</figcaption>
         </figure>
 
         <ul>
@@ -58,12 +58,12 @@
         <figure class="lines-wrap">
           <img class="lines" src="../img/lines.gif" alt="Lines" loading="lazy">
 
-          <figcaption><strong>Figure 2:</strong> Steamlines and pathlines</figcaption>
+          <figcaption><strong>Figure 2:</strong> The animation shows the connection between streamlines, pathlines and streaklines. The traversal of a particle in a time-varying velocity field is shown, which results in a pathline. In contrast, streamlines are computed in each time instance of the field (dashed lines). The streakline may be described as the path of dye, or smoke, released from the particle into the time-varing field. </figcaption>
         </figure>
 
         <figure>
           <img src="../img/campfire.jpg" alt="Pathlines" loading="lazy">
-          <figcaption><strong>Figure 3:</strong> Pathlines</figcaption>
+          <figcaption><strong>Figure 3:</strong> The directions of moving hot air flow from a campfire supposedly follow pathlines. The lines are visible from a long-exposure photo. This would mean that the heat dissipation from a campfire can be descrbed with a non-stationary velocity field of hot air flow. The image is borrowed from Wikipedia</figcaption>
         </figure>
         <h2>Non-rigid registration</h2>
 
@@ -94,7 +94,7 @@
         <figure class="svg-wrap">
           <img src="../img/model.svg" alt="Model" loading="lazy">
 
-          <figcaption><strong>Figure 4:</strong> Model</figcaption>
+          <figcaption><strong>Figure 4:</strong> Axial illustration of the radial growth model used to create synthetic deformation fields with simple input data. It requires only lesion and brain mask, and specified maximum tissue displacement (largest yellow arrows), tissue penetration (maximum penetration shown with the largest possible triangle) and growth irregularity (no irregularity applied in the figure). We used this model to assess non-rigid registration methods. </figcaption>
         </figure>
 
         <h2>Reference</h2>
