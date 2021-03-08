@@ -8,7 +8,7 @@ window.onload = function() {
   // create a new X.fibers
   var fibers = new X.fibers();
   // .. associate the TrackVis .TRK file
-  fibers.file = '../models/tractogram-new.trk';
+  fibers.file = '../models/tractogram.trk';
   fibers.caption = 'Everything changes.';
   
   // .. add the fibers
