@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>cancer-sim | about</title>
+    <!-- <script type="text/javascript" src="https://get.goXTK.com/xtk_edge.js"></script> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../style.css?v=0.5">
+    <link rel="shortcut icon" href="../favicon.ico">
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="https://cancer-sim.com"><img src="../cancer-sim.png" alt=""><span>cancer-sim</span></a>
+    </header>
+
+    <div class="container">
+      <div class="wrap">
+        <h1>About</h1>
+        <p>
+          Coarse-grained approximation of real physical displacements of tissue using displacement fields as a result of cancer progression.
+        </p>
+
+        <ul>
+          <li>Fibers are streamlines or pathlines illustrating trajectories of displacement of tissue along with disease progression.
+          </li>
+          <li>Meshes are surfaces illustrating large displacement of tissue.</li>
+        </ul>
+
+        <p>
+          In this explanation, we regard quantized tissue imaging samples, voxels, as particles acting on a vector field.
+        </p>
+
+        <h2>Fiber modes: Streamlines or pathlines</h2>
+
+        <ul>
+          <li>Streamlines: Displacement of tissue between two MRI examinations using a static vector field
+          </li>
+        </ul>
+
+        <p>
+          Fibers show tangential directions of displacement of tissue using a vector field to describe the deformation of the first MRI examination into the second examination. The below figure illustrates the simplest radial shrinking deformation field together with its streamlines and two interpretations of individual particle path simulations. We suggest interpreting the vector field as a velocity field. The particles show displacement behavior in the vector field when interpreted as a velocity and force field, respectively. Graphic rendered from falstad.com.
+        </p>
+
+        <figure>
+          <img src="../img/particles.gif" alt="Particles">
+
+          <figcaption><strong>Figure 1:</strong> Particles</figcaption>
+        </figure>
+
+        <p>Pathlines: Displacement of tissue over multiple MRI examinations using a time-varying vector field</p>
+
+        <p>
+          Fibers show positions of displaced tissue for each time interval between examinations as disease progresses. The below figure illustrates the pathline of a particle along with streamlines and another closely related concept, the streakline of the particle. The figure is modified and originates from the Wikipedia page on streamlines: <a href="https://en.wikipedia.org/wiki/Streamlines%2C_streaklines%2C_and_pathlines" target="_blank">Streamlines, streaklines, and pathlines</a></a>
+        </p>
+
+        <figure class="lines-wrap">
+          <img class="lines" src="../img/lines.gif" alt="Lines">
+
+          <figcaption><strong>Figure 2:</strong> Steamlines and pathlines</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../img/campfire.jpg" alt="Pathlines">
+          <figcaption><strong>Figure 3:</strong> Pathlines</figcaption>
+        </figure>
+        <h2>Non-rigid registration</h2>
+
+        <p>
+          We use non-rigid registration methods to estimate the most realistic displacement fields between MRI examinations. Our research has indicated that these methods are suited for tumor growth characterization especially for low physical displacements (~3 mm), large tumors and contrast-enhanced and edematous tissue. We use ANTs Symmetric image Normalization (SyN) with cross-correlation as loss metric, voxelmorph and Gunnar-Farneback optical flow for non-rigid registrations.
+        </p>
+
+        <h2>Radial growth model</h2>
+
+        <p>
+          To validate the applicability of non-rigid registration for this task, we have developed a model for generating radially expanding and shrinking ground truth deformation fields using only lesion and brain mask, and three input parameters:
+        </p>
+
+        <ol>
+          <li>Maximum displacement</li>
+          <li>Penetration</li>
+          <li>Irregularity</li>
+        </ol>
+
+        <p>
+          We have also developed methods to automatically compute best fit parameters of this model to real MRI data. Expanding deformations mimic tumor progression with a pushing phenotype from cancer mass effect, while shrinking deformations mimic shrinkage of pathogenic tissue as a result of treatment. The model is inspired from real growth cases in High-Grade Glioma; grade III and IV central nervous system tumors and was developed at Oslo University Hospital, Oslo, Norway.
+        </p>
+
+        <p>
+          The core idea of the deformation model is illustrated in the axial brain slice figure below for expanding deformation. Based on the bounding box dimensions of the lesion mask, we compute an outward vector field from a 3D gaussian intensity function. We then extrapolate this vector field by interpolating the field components in the <insert small ||| and --- pattern for gravering of the small triangle here> region to cover the entire <insert small ||| pattern for gravering of the large triangle here> region. The amount of extrapolation is determined by “Penetration”. The field is then scaled to have the specified “Maximum displacement”. Then we add some Perlin noise to mimic the growth irregularity.
+        </p>
+
+        <figure>
+          <img src="../img/model.svg" alt="Model">
+
+          <figcaption><strong>Figure 4:</strong> Model</figcaption>
+        </figure>
+
+        <h3>Reference</h3>
+        
+        <p>insert displacement manuscript published DOI here</p>
+
+        <h3>Contact</h3>
+
+        <p>Ivar Thokle Hovden<br>
+          PhD Student<br>
+          Department of Diagnostic Physics<br>
+          Computational Radiology and Artificial Intelligence (CRAI)<br>
+          Oslo University Hospital (OUS)</p>
+
+          <p>Department of Physics<br>
+          University of Oslo (UiO)</p>
+
+          <p>Norway</p>
+
+          <p><a href="https://www.ous-research.no/home/emblem/Group%20members/19164">Home page at OUS</a><br>
+          <a href="https://www.mn.uio.no/fysikk/english/people/aca/ivarth/">Home page at UiO</a><br>
+          <a href="https://github.com/ivartz">GitHub</a><br>
+        </p>
+
+
+        <h3>Webdesign</h3>
+        <p>Mattis Hovden Aas, <a href="https://dovremedia.no" target="_blank">Dovre Media</a></p>
+        
+      </div>
+    </div>
+
+  </body>
+</html>
