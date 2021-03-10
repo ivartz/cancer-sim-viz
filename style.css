@@ -65,7 +65,11 @@ header img {
   bottom: 40px;
   color: #434343;
 }
-
+#gui {
+  position: absolute;
+  top: 100px; 
+  left: 0px;
+}
 .about {
   position: absolute;
   right: 40px;
