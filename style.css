@@ -54,6 +54,11 @@ header img {
   margin: 5px 15px 0 0;
 }
 
+header a.logo .adf {
+  max-width: 3.5rem;
+  margin-left: 1rem;
+}
+
 .xtk-progress-bar {
   padding: 2px !important;
   border-radius: 10px;
@@ -112,7 +117,7 @@ header img {
   color: #434343;
   text-transform: lowercase;
   border-left: solid 2px;
-  padding-left: 15px;
+  padding-left: 1rem;
 }
 
 .wrap h2 {
@@ -203,8 +208,6 @@ footer {
   .container {
     padding: 0 10px 40px;
   }
-
-
 
   header {
     height: 80px;
