@@ -1,1 +1,4 @@
 .htaccess
+
+# Local Netlify folder
+.netlify
