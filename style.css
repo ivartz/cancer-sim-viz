@@ -4,7 +4,7 @@
 
 html,
 body {
-  background-color: #000;
+  background-color: #121212;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -164,6 +164,24 @@ header a.logo .adf {
   transition: all 75ms;
 }
 
+canvas {
+  background: #000;
+}
+
+.dg li:not(.folder), .dg li.title {
+  background: none !important;
+}
+
+.credit-logos {
+  background: #fff;
+  padding: 0 3rem;
+  margin-top: 2rem;
+}
+
+.credit-logos img {
+  width: 100%;
+}
+
 figure {
   margin: 40px 0;
 }
@@ -251,5 +269,10 @@ footer {
 @media only screen and (max-width: 410px) {
   .intro-line {
     max-width: 200px;
+  }
+
+  .credit-logos {
+    padding: 0 2rem;
+    margin-top: 1.5rem;
   }
 }
