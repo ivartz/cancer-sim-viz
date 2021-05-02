@@ -20,89 +20,62 @@
       <div class="wrap">
         <h2>About</h2>
         <p>
-          Coarse-grained approximation of real physical displacements of tissue using displacement fields as a result of cancer progression.
+          Tissue displacement from treatment of high-grade glioma as described by non-rigid registration or a fitted radial deformation model of tissue expansion or shrinkage.
         </p>
 
         <ul>
-          <li>Fibers are streamlines or pathlines illustrating trajectories of displacement of tissue along with disease progression.
-          </li>
-          <li>Meshes are surfaces illustrating large displacement of tissue.</li>
-        </ul>
-
-        <p>
-          In this explanation, we regard quantized tissue imaging samples, voxels, as particles acting on a vector field.
-        </p>
-
-        <h2>Fiber modes: Streamlines or pathlines</h2>
-
-        <ul>
-          <li>Streamlines: Displacement of tissue between two MRI examinations using a static vector field
+          <li>Fibers are pathlines illustrating tissue displacement paths along with treatment and/or disease progression.
           </li>
         </ul>
 
-        <p>
-          Fibers show tangential directions of displacement of tissue using a vector field to describe the deformation of the first MRI examination into the second examination. The below figure illustrates the simplest radial shrinking deformation field together with its streamlines and two interpretations of an individual particle path. We suggest interpreting the vector field as a velocity field. The particles show displacement behavior in the vector field when interpreted as a velocity and force field, respectively.
-        </p>
-
-        <figure>
-          <img src="../img/particles.gif" alt="Particles" loading="lazy">
-
-          <figcaption><strong>Figure 1:</strong> Illustration of radial shrinking deformation using a vector field and streamlines. When interpreted as a velocity field, a massless particle will act on the field as time progresses by moving along streamlines that are tangential to the arrows, and with velocities proportional to the length of the arrows (color coded, white with higest velocity). The streamlines are analog to fibers in diffusion tensoor imaging (DTI). The equivalent force field exerts different behavor on a particle.</figcaption>
-        </figure>
-
-        <ul>
-          <li>Pathlines: Displacement of tissue over multiple MRI examinations using a time-varying vector field</li>
-        </ul>
-
-        <p>
-          Fibers show positions of displaced tissue for each time interval between examinations as disease progresses. The below figure illustrates the pathline of a particle along with streamlines and another closely related concept, the streakline of the particle. The figure is modified and originates from the Wikipedia page on streamlines: <a href="https://en.wikipedia.org/wiki/Streamlines%2C_streaklines%2C_and_pathlines" target="_blank">Streamlines, streaklines, and pathlines</a></a>
-        </p>
+        <h2>Pathlines: Displacement of tissue across multiple MRI examinations</h2>
 
         <figure class="lines-wrap">
           <img class="lines" src="../img/lines.gif" alt="Lines" loading="lazy">
 
-          <figcaption><strong>Figure 2:</strong> The animation shows the connection between streamlines, pathlines and streaklines. The traversal of a particle in a time-varying velocity field is shown, which results in a pathline. In contrast, streamlines are computed in each time instance of the field (dashed lines). The streakline may be described as the path of dye, or smoke, released from the particle into the time-varing field. </figcaption>
+          <figcaption><strong>Figure 1:</strong> The animation shows the connection between streamlines, pathlines and streaklines. The traversal of a particle in a time-varying velocity field is shown, which results in a pathline. The figure is modified and originates from the Wikipedia page on streamlines: <a href="https://en.wikipedia.org/wiki/Streamlines%2C_streaklines%2C_and_pathlines" target="_blank">Streamlines, streaklines, and pathlines</a></a>.
+          </figcaption>
         </figure>
 
         <figure>
           <img src="../img/campfire.jpg" alt="Pathlines" loading="lazy">
-          <figcaption><strong>Figure 3:</strong> The directions of moving hot air flow from a campfire supposedly follow pathlines. The lines are visible from a long-exposure photo. This would mean that the heat dissipation from a campfire can be descrbed with a non-stationary velocity field of hot air flow. The image is borrowed from Wikipedia</figcaption>
+          <figcaption><strong>Figure 2:</strong> The directions of moving hot air flow from a campfire follow pathlines. The lines are visible from a long-exposure photo. This would mean that the heat dissipation from a campfire can be descirbed using a time-varying velocity field of hot air flow. The image is borrowed from Wikipedia.</figcaption>
         </figure>
-        <h2>Non-rigid registration</h2>
+        <h2>Background: Non-rigid registration for tumor growth characterization</h2>
 
         <p>
-          We use non-rigid registration methods to estimate the most realistic displacement fields between MRI examinations. Our research has indicated that these methods are suited for tumor growth characterization especially for low physical displacements (~3 mm), large tumors and contrast-enhanced and edematous tissue. We use ANTs Symmetric image Normalization (SyN) with cross-correlation as loss metric, voxelmorph and Gunnar-Farneback optical flow for non-rigid registrations.
+          Non-rigid registration methods can be used to estimate tissue displacement between MRI examinations. Our results indicate applicability of non-rigid registration for tumor growth characterization for low physical displacements (~3 mm), large tumors (high infiltration) and contrast-enhanced and edematous tissue. The highest performant methods were ANTs Symmetric image Normalization (SyN) with cross-correlation as loss metric and Gunnar-Farneback optical flow.
         </p>
 
-        <h2>Radial growth model</h2>
+        <h2>Radial deformation model</h2>
 
         <p>
-          To validate the applicability of non-rigid registration for this task, we have developed a model for generating radially expanding and shrinking ground truth deformation fields using only lesion and brain mask, and three input parameters:
+          The radial deformation model was developed to validate the applicability of non-rigid registration for tumor growth characterization. It takes as input a structural MRI scan, lesion and brain masks, and three parameters:
         </p>
 
         <ol>
-          <li>Maximum displacement</li>
-          <li>Penetration</li>
+          <li>Maximum tissue displacement</li>
+          <li>Tumor infiltration</li>
           <li>Irregularity</li>
         </ol>
 
         <p>
-          We have also developed methods to automatically compute best fit parameters of this model to real MRI data. Expanding deformations mimic tumor progression with a pushing phenotype from cancer mass effect, while shrinking deformations mimic shrinkage of pathogenic tissue as a result of treatment. The model is inspired from real growth cases in High-Grade Glioma; grade III and IV central nervous system tumors and was developed at Oslo University Hospital, Oslo, Norway.
+          Expanding deformations mimic tumor progression with a pushing phenotype from cancer mass effect, while shrinking deformations mimic shrinkage of pathogenic tissue as a result of treatment. Grid search on the parameters were used to find best fit model projections for longitudinal MRI data. 
         </p>
 
         <p>
-          The core idea of the deformation model is illustrated in the axial brain slice figure below for expanding deformation. Based on the bounding box dimensions of the lesion mask, we compute an outward vector field from a 3D gaussian intensity function. We then extrapolate this vector field by interpolating the field components in the double dashed region region to cover the entire single dashed region. The amount of extrapolation is determined by “Penetration”. The field is then scaled to have the specified “Maximum displacement”. We then add some Perlin noise to mimic the growth irregularity.
+          The core idea of the deformation model is illustrated in the axial brain slice figure below for expanding deformation. Based on the bounding box dimensions of a lesion mask, an outward vector field from a 3D gaussian intensity function is computed. To model infiltration, the field is "stretched out" by interpolating the field components in the double dashed region region to cover the entire single dashed region. The field is then scaled to have the specified maximum tissue displacement. An optional Perlin noise can be added to mimic displacement irregularities.
         </p>
 
         <figure class="svg-wrap">
           <img src="../img/model.svg" alt="Model" loading="lazy">
 
-          <figcaption><strong>Figure 4:</strong> Axial illustration of the radial growth model used to create synthetic deformation fields with simple input data. It requires only lesion and brain mask, and specified maximum tissue displacement (largest yellow arrows), tissue penetration (maximum penetration shown with the largest possible triangle) and growth irregularity (no irregularity applied in the figure). We used this model to assess non-rigid registration methods. </figcaption>
+          <figcaption><strong>Figure 3:</strong> Axial illustration of the radial growth model used to create synthetic deformation fields with simple input data. It requires only lesion and brain mask, and specified maximum tissue displacement (largest yellow arrows), tissue penetration (maximum penetration shown with the largest possible triangle) and growth irregularity (no irregularity applied in the figure). We used this model to assess non-rigid registration methods. </figcaption>
         </figure>
 
         <h2>Reference</h2>
         
-        <p>Soon to be published (2021-03-09)</p>
+        <p>For review (2021-05-03)</p>
 
         <h2>Contact</h2>
 

@@ -7,7 +7,8 @@ window.onload = function() {
     var fibers = new X.fibers();
 
     // .. associate the TrackVis .TRK file
-    fibers.file = '../data/pathlines-model-enh.trk';
+    //fibers.file = '../data/pathlines-model-enh.trk';
+    fibers.file = 'data/pathlines-model-reduced-enh.trk';
     
     //fibers.linewidth = 50
 
@@ -18,9 +19,10 @@ window.onload = function() {
     // this works with gzip/gz/raw encoded NRRD files but XTK also supports other
     // formats like MGH/MGZ
     //volume.file = 'http://x.babymri.org/?avf.nrrd';
-    volume.file = '../data/1-T1c.nii';
+    //volume.file = '../data/1-T1c.nii';
+    volume.file = 'data/true-max.nii.gz';
     
-    volume.visible = true;
+    volume.visible = false;
     var volumeWasLoaded = false;
 
     // add fibers
@@ -32,7 +34,7 @@ window.onload = function() {
     }
     
     // Some global variables to maintain state when animatid
-    var animate = true;
+    var animate = false;
     var trackSwipingThresholdControllerGlobal;
     var maxtGlobal;
     var frameCount = 1
@@ -68,10 +70,10 @@ window.onload = function() {
       }
       var animateController = gui.add(animateobject, 'animated');
       
-      var trackgui = gui.addFolder('Growth fibers');
+      var trackgui = gui.addFolder('Model displacement');
       trackVisibleController = trackgui.add(fibers, 'visible');
       trackOpacityController = trackgui.add(fibers, 'opacity', 0, 1)
-      trackOpacityController.setValue(0.5);
+      trackOpacityController.setValue(1);
       var mint = fibers.scalars.min
       var maxt = fibers.scalars.max
       maxtGlobal = maxt
@@ -100,26 +102,26 @@ window.onload = function() {
       trackgui.close();
       
       // the following configures the gui for interacting with the X.volume
-      var volumegui = gui.addFolder('Tumor volume');
+      var volumegui = gui.addFolder('Max of longitudinal MRI');
       var volumeVisibleController = volumegui.add(volume, 'visible');
       
       function popluate_volumegui() {
         // activate volume rendering
         //volume.volumeRendering = true;
         //volume.opacity = 0.05;
-        //volume.opacity = 0.5;
-        volume.windowLower = volume.min;
-        volume.windowHigh = 120;
-        volume.lowerThreshold = 10;
-        volume.upperThreshold = volume.max;
-        volume.indexX = 45;
-        volume.indexY = 0;
+        volume.opacity = 0.12;
+        volume.windowLower = 0;
+        volume.windowHigh = 255;
+        volume.lowerThreshold = 128.7;
+        volume.upperThreshold = 141;
+        volume.indexX = 0;
+        volume.indexY = 121;
         volume.indexZ = 0;
         
         var vrController = volumegui.add(volume, 'volumeRendering');
         
         var opacityController = volumegui.add(volume, 'opacity', 0, 1)
-        opacityController.setValue(0.5)
+        //opacityController.setValue(0.5)
         var lowerWindowController = volumegui.add(volume, 'windowLow', volume.min, volume.max);
         var upperWindowController = volumegui.add(volume, 'windowHigh', volume.min, volume.max);
         var lowerThresholdController = volumegui.add(volume, 'lowerThreshold', volume.min, volume.max);
@@ -167,20 +169,20 @@ window.onload = function() {
         //fibers.transform.rotateY(0.05);
         r.camera.rotate([-1,0]);
 
-        if (! (frameCount % 4)) {
-          var v = trackSwipingThresholdControllerGlobal.getValue()+0.1;
-          
-          if (v > 0.9*maxtGlobal) {
-            trackSwipingThresholdControllerGlobal.setValue(3);
-          }
-          else {
-            trackSwipingThresholdControllerGlobal.setValue(v);
-          }          
-          frameCount = 1;
-        }
-        else {
-          frameCount += 1;
-        }
+        //if (! (frameCount % 4)) {
+        //  var v = trackSwipingThresholdControllerGlobal.getValue()+0.1;
+        //  
+        //  if (v > 0.9*maxtGlobal) {
+        //    trackSwipingThresholdControllerGlobal.setValue(3);
+        //  }
+        //  else {
+        //    trackSwipingThresholdControllerGlobal.setValue(v);
+        //  }          
+        //  frameCount = 1;
+        //}
+        //else {
+        //  frameCount += 1;
+        //}
 
       }
     
