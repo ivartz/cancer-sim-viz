@@ -70,7 +70,17 @@ header a.logo .adf {
   right: 0px;
   min-width: 25vw !important;
   height: 100vh;
-  padding: 33px 30px;
+  padding: 40px 30px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+}
+
+#gui li.title {
+  font-family: "Roboto Mono", monospace;
+}
+
+.close-button-drag {
+  background: rgba(255,255,255,0.15);
 }
 
 .about {
@@ -223,10 +233,6 @@ footer {
     padding: 0 10px 40px;
   }
 
-  header {
-    height: 80px;
-  }
-
   header a.logo {
     font-size: 25px;
   }
@@ -256,6 +262,13 @@ footer {
     max-width: 100% !important;
     margin: 0 0 20px 0;
   }  
+}
+
+@media only screen and (max-width: 600px) {
+  #gui {
+    top: 70px;
+    left: 0;
+  }
 }
 
 @media only screen and (max-width: 410px) {
