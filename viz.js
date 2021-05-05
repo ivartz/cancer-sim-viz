@@ -50,7 +50,7 @@ window.onload = function() {
       // volume dimensions before the loading was completed)
       var gui = new dat.GUI();
 
-      gui.width = window.innerWidth
+      //gui.width = window.innerWidth
 
       gui.autoPlace = false
       

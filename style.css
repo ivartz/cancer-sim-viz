@@ -16,21 +16,15 @@ body.model {
   overflow: hidden !important;
 }
 
-body.model header {
-  background: rgba(255, 255, 255, 0.08);
-}
-
 header {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 0 30px;
   height: 100px;
-  background: rgba(0, 0, 0, 0.8);
   color: #434343;
 }
 
@@ -75,6 +69,9 @@ header a.logo .adf {
   position: absolute;
   top: 100px;
   left: 0px;
+  min-width: 25vw !important;
+  height: 100vh;
+  padding: 10px 30px;
 }
 
 .about {
@@ -233,10 +230,6 @@ footer {
 
   header a.logo {
     font-size: 25px;
-  }
-
-  #gui {
-    top: 80px;
   }
 
   .wrap p,
