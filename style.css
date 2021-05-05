@@ -69,7 +69,6 @@ header a.logo .adf {
   top: 0px;
   right: 0px;
   min-width: 25vw !important;
-  height: 100vh;
   padding: 40px 30px;
   font-family: "Roboto Mono", monospace;
 }
@@ -87,7 +86,6 @@ header a.logo .adf {
   position: absolute;
   right: 40px;
   bottom: 40px;
-  z-index: 10;
 }
 
 .about a {
