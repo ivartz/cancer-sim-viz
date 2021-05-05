@@ -72,10 +72,10 @@ header a.logo .adf {
   height: 100vh;
   padding: 40px 30px;
   font-family: "Roboto Mono", monospace;
-  font-weight: bold;
 }
 
-#gui li.title {
+#gui li.title,
+#gui li span {
   font-family: "Roboto Mono", monospace;
 }
 
@@ -87,6 +87,7 @@ header a.logo .adf {
   position: absolute;
   right: 40px;
   bottom: 40px;
+  z-index: 10;
 }
 
 .about a {
