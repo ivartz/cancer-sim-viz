@@ -8,7 +8,7 @@ window.onload = function() {
 
     // .. associate the TrackVis .TRK file
     //fibers.file = '../data/pathlines-model-enh.trk';
-    fibers.file = 'data/pathlines-model-reduced-enh.trk';
+    fibers.file = 'data/pathlines-reduced.trk';
     
     //fibers.linewidth = 50
 
