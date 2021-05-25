@@ -100,6 +100,12 @@ header a.logo .adf {
   transition: all 75ms;
 }
 
+.welcome-sounds > *,
+.welcome-sounds > *:hover {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   align-items: center;

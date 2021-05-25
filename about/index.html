@@ -18,9 +18,11 @@
 
     <div class="container">
       <div class="wrap">
-        <div class="sounds">
-          <audio src="../sounds/welcome-us.mp3" controls></audio>
-          <audio src="../sounds/velkommen-nb.m4a" controls></audio>
+        <div class="welcome-sounds">
+          <a id="play-english">Listen in English</a>
+          <a id="play-norwegian">Hør på norsk</a>
+          <audio id="sound-english" src="../sounds/welcome-us.mp3"></audio>
+          <audio id="sound-norwegian" src="../sounds/velkommen-nb.m4a"></audio>
         </div>
         
         <h2>About</h2>
@@ -115,5 +117,6 @@
       </div>
     </div>
 
+    <script type="text/javascript" src="../sounds.js?v=0.1"></script>
   </body>
 </html>
